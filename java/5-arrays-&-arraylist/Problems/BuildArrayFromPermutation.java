@@ -13,7 +13,7 @@ Example 2:
 Input: nums = [5,0,1,2,3,4]
 Output: [4,5,0,1,2,3]
 
-https://leetcode.com/problems/build-array-from-permutation/
+Problem link: https://leetcode.com/problems/build-array-from-permutation/
 
  */
 
