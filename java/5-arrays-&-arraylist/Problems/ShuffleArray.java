@@ -25,9 +25,11 @@ Problem link: https://leetcode.com/problems/shuffle-the-array/
 class Solution {
     public int[] shuffle(int[] nums, int n) {
         int[] ans = new int[2*n];
-        for(int i=0; i<n; i++){
-            ans[2*i]=nums[i];
-            ans[2*i + 1] = nums[n+i];
+        for(int i=0; i<n; i++){         // n iterations, with each iteration, two allocations will take place
+            ans[2*i]=nums[i];           // 2*i will fill the even indexes
+            ans[2*i + 1] = nums[n+i];   // 2*i+1 will fill the odd indexes (next to its previous even indexes)
+            // i index takes the (i)th index element and puts it in the even index location
+            // n+i index takes (n+i)th index element and puts it in the odd index location (right next to its previous even index)
         }
         return ans;
     }
