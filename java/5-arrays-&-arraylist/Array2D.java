@@ -17,7 +17,7 @@ public class Array2D {
         int[][] arr1 = new int[3][3]; // specifying the number of rows is mandatory
         
         //input using for loop
-        for (int row = 0; row < arr.length; row++) {
+        for (int row = 0; row < arr1.length; row++) {
             //for each column in every row
             for (int col = 0; col < arr1[row].length; col++) {
                 arr1[row][col] = in.nextInt();
