@@ -15,4 +15,11 @@ public class Ceiling {
         }
         return array[start]; // returns the ceiling element
     }
+
+    /*
+    When the target element is found, the element itself is return coz it is its ceiling itself.
+    When the element is not found, start becomes > than end (start>end), that's when the loop breaks.
+    And start becomes the ceiling of the target element
+    (the element just greater than the target element present in the array)
+    */
 }

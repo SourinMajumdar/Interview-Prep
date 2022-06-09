@@ -14,5 +14,12 @@ public class Floor {
             else return mid;
         }
         return array[end]; // returns the floor element
+
+        /*
+        When the target element is found, the element itself is return coz it is its floor itself.
+        When the element is not found, start becomes > than end (start>end), that's when the loop breaks.
+        And end becomes the floor of the target element
+        (the element just smaller than the target element present in the array)
+        */
     }
 }
