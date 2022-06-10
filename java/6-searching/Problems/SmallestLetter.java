@@ -43,6 +43,10 @@ class Solution {
         or we can do:
         if(start==letters.length) return letters[0];
 
+        i.e. if there is no 'Smallest Letter Greater Than Target', return the 1st element (0th index)
+
+        when it is not found, start will be mid+1, i.e. 1 index more than the last index of the array, and that's where the loop will break.
+        and at that situation, 'start = letters.length', so in order to go back to the 0th index, we do 'start % letters.length' which will give 0.
         */
     }
 }
