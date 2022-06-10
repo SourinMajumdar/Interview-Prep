@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
-
+// Search in a Rotated Sorted Array
 class Solution {
     public int search(int[] nums, int target) {
         int pivot = findPivot(nums);
