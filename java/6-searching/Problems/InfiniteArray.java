@@ -12,7 +12,7 @@ public class InfiniteArray {
         int start = 0, end = 1;
         while(target>arr[end]){    // if the target lies beyond the element at the end
             int newStart = end+1;   // make new start from the element next to end i.e. end+1
-            end = end + (end-start+1)*2;    // this would be the new end: end+[end-(start-1)]
+            end = end + (end-start+1)*2;    // this would be the new end: end+[end-(start-1)] (new end = prev end + sizeofbox*2), doubling the box value
             start = newStart;   // replacing the original start with new start
         }
         return binarySearch(arr,target,start,end);  // calling the binary search function with updated range parameters where the target possibly lies
