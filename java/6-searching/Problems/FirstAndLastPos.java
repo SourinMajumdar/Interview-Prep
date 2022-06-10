@@ -31,7 +31,7 @@ class Solution {
     }
 
     int search(int[] nums, int target, boolean findStartIndex){
-        int ans = -1;
+        int ans = -1; // initialising to -1, in case target not found, we'll simply return -1;
         int start = 0, end = nums.length-1;
         while(start<=end){
             int mid = start + (end-start)/2;
