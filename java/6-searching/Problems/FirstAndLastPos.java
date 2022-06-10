@@ -38,7 +38,7 @@ class Solution {
             if(target<nums[mid]) end = mid-1;
             else if (target>nums[mid]) start = mid+1;
             else{
-                ans = mid;
+                ans = mid; // potential ans found, but still would look for first and last index further in both sides
                 if(findStartIndex) end = mid-1;
                 else start = mid+1;
             }
