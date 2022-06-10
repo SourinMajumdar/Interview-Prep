@@ -17,8 +17,6 @@ Output: 1
  */
 
 
-package Problems;
-
 class Solution {
     public int peakIndexInMountainArray(int[] arr) {
         int start = 0, end = arr.length-1;
