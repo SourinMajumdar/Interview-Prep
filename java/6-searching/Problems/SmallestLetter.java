@@ -37,5 +37,12 @@ class Solution {
             else start = mid+1;
         }
         return letters[start % letters.length];
+
+        /*
+
+        or we can do:
+        if(start==letters.length) return letters[0];
+
+        */
     }
 }
