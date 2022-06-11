@@ -7,15 +7,13 @@ https://leetcode.com/problems/sqrtx/
 
 class Solution {
     public int mySqrt(int x) {
-        if(x==1) return x;
+        if (x<2) return x;
         int start = 2, end = x/2;
-        long num;
         while(start<=end){
             int mid = start+(end-start)/2;
-            num = (long)mid*mid;
-            if(num>x) end = mid-1;
-            else if (num<x) start = mid+1;
-            else return mid; // num == x
+            if(mid==x/mid) return mid;
+            else if (mid<x/mid) start = mid+1;
+            else end = mid-1; // num == x
         }
         return end;
     }
