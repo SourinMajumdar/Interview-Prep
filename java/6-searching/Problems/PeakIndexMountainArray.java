@@ -25,7 +25,7 @@ class Solution {
             if(arr[mid]>arr[mid+1]){ // descending part of array
                 end = mid; // if true, end=mid, we'll check till this new end
             }else{ // arr[mid]>arr[mid+1], ascending part of array
-                start = mid+1; // we'll check from mid+1 cox mid is definitely smaller than mid+1
+                start = mid+1; // we'll check from mid+1 coz mid is definitely smaller than mid+1
             }
         }
         return start; // or end
