@@ -23,7 +23,21 @@ Problem link: https://leetcode.com/problems/richest-customer-wealth/
 
 class Solution {
     public int maximumWealth(int[][] accounts) {
-        int[] wealth = new int[accounts.length];
+        int max = 0;
+        for(int i =0; i<accounts.length; ++i){
+            int sum = 0;
+            for (int j = 0; j<accounts[i].length; ++j){
+                sum += accounts[i][j];
+            }
+            if(sum >  max) max = sum;
+        }
+        return max;
+    }
+}
+
+// Using for-each loops
+class Solution {
+    public int maximumWealth(int[][] accounts) {
         int max = 0;
         for (int[] rows : accounts) {
             int sum = 0;
