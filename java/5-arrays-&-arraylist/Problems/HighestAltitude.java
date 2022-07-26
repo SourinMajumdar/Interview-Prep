@@ -18,11 +18,11 @@ Problem link: https://leetcode.com/problems/find-the-highest-altitude/
 
 class Solution {
     public int largestAltitude(int[] gain) {
-        int num=0, sum=0;
+        int max=0, sum=0;
         for (int j : gain) {
             sum = sum + j;
-            if (sum > num) num = sum;
+            if (sum > max) max = sum;
         }
-        return num;
+        return max;
     }
 }
