@@ -17,11 +17,13 @@ Problem link: https://leetcode.com/problems/build-array-from-permutation/
 
  */
 
+
+// TC: o(N), SC: O(N)
+
 class Solution {
     public int[] buildArray(int[] nums) {
         int[] ans = new int[nums.length];
-        int i=0;
-        while(i<nums.length){
+        for (int i = 0; i < nums.length; ++i){
             ans[i]=nums[nums[i]];
             ++i;
         }
@@ -29,3 +31,23 @@ class Solution {
     }
 }
 
+
+// Memory optimised solution:
+// TC: O(N), SC: O(1) because no extra space is taken
+
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int n = nums.length;
+        for(int i = 0; i < n; ++i){
+            nums[i] += n * (nums[nums[i]] % n);
+        }
+
+        for(int i = 0; i < n; ++i){
+            nums[i] /= n;
+        }
+        return nums;
+    }
+}
+
+// nums[i] += n * (nums[nums[i]] % n) OR nums[i] = n * (nums[nums[i]] % n) + nums[i]
+// is based upon Euclid's division algorithm: a = bq + r
