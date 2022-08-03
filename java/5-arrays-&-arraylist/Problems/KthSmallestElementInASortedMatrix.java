@@ -22,4 +22,37 @@ class Solution {
     }
 }
 
-// Optimized approach -
+// Optimized approach - TC: O(____), SC: O(1) - Binary search
+
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        int n = matrix.length;
+        int lo = matrix[0][0], hi = matrix[n - 1][n - 1];
+
+        while (lo < hi) {
+            int mid = lo + (hi - lo) / 2;
+            int count = counter(matrix, mid);
+
+            if( count < k ) lo = mid + 1;
+            else hi = mid;
+        }
+
+        return lo;
+    }
+
+    int counter(int[][] matrix, int mid) {
+        int n = matrix.length;
+        int row = 0;
+        int col = n - 1;
+        int count = 0;
+        while (row < n && col >= 0) {
+            if (matrix[row][col] > mid) {
+                col--;
+            } else {
+                count += col + 1;
+                row++;
+            }
+        }
+        return count;
+    }
+}

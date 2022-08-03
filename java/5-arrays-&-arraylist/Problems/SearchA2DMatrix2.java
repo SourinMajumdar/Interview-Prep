@@ -1,5 +1,4 @@
-// Problem : https://leetcode.com/problems/search-a-2d-matrix/
-// Solution:
+// Problem : https://leetcode.com/problems/search-a-2d-matrix-ii/
 
 // Brute force approach: TC: O(m * n), SC: O(1)
 
@@ -21,7 +20,7 @@ class Solution {
 
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int m = matrix.length;
+        int  m = matrix.length;
         int n = matrix[0].length;
         int i = 0, j = n - 1;
 
@@ -30,34 +29,6 @@ class Solution {
                 j-- ;
             } else if ( matrix[i][j] < target ) {
                 i++ ;
-            } else {
-                return true;
-            }
-        }
-
-        return false;
-
-    }
-}
-
-// Optimised approach using BINARY SEARCH - TC: O(log(m * n)), SC: O(1)
-
-class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int m = matrix.length;
-        int n = matrix[0].length;
-
-        int lo = 0;
-        int hi = (m * n) - 1;
-
-        while(lo <= hi) {
-
-            int mid = lo + (hi - lo) / 2;
-
-            if( matrix[mid/n][mid%n] < target ) {
-                lo = mid + 1;
-            } else if ( matrix[mid/n][mid%n] > target ) {
-                hi = mid - 1;
             } else {
                 return true;
             }
