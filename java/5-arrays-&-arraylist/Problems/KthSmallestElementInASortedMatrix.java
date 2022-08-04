@@ -22,7 +22,7 @@ class Solution {
     }
 }
 
-// Optimized approach - TC: O(____), SC: O(1) - Binary search
+// Optimized approach - TC: O(m * n * log(max-min)), SC: O(1) - Binary search
 
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
@@ -56,3 +56,7 @@ class Solution {
         return count;
     }
 }
+
+//    Binary search has search space of O(max-min). And the function I have made to count is just linear, but counting from backward.
+//    In real case scenario it is fast but in worst case it is O(m * n)
+      //  So, overall time complexity O(m*n*log(max-min))
