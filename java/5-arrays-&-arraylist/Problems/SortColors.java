@@ -23,4 +23,4 @@ class Solution {
     }
 }
 
-// TC: O(n) + O(n * logn) --> O(n * logn),  SC: O(1)
+// TC: O(n), SC: O(1)
