@@ -11,11 +11,12 @@ class Solution {
             arr.add(index[i], nums[i]);
         }
 
-        int[] target = new int[arr.size()];
         for(int i = 0; i<nums.length; ++i){
-            target[i] = arr.get(i);
+            nums[i] = arr.get(i);
         }
 
-        return target;
+        return nums;
     }
 }
+
+// TC: O(n^2), SC: O(n)
