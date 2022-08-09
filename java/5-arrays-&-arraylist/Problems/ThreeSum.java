@@ -1,5 +1,5 @@
 // Problem: https://leetcode.com/problems/3sum/
-//
+// Solution: https://www.youtube.com/watch?v=onLoX6Nhvmg&t=1281s
 
 // Brute force (time limit exceeded)
 
