@@ -1,5 +1,5 @@
 // Problem: https://leetcode.com/problems/single-element-in-a-sorted-array/
-// Solution: https://www.youtube.com/watch?v=4Gi8uAz666s
+// Problems.Solution: https://www.youtube.com/watch?v=4Gi8uAz666s
 
 class Solution {
     public int singleNonDuplicate(int[] nums) {
