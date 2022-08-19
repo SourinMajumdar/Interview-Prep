@@ -3,12 +3,13 @@
 
 class Solution {
     public int maxProfit(int[] prices) {
-        int min = prices[0];
-        int maxProfit = 0;
+        int minPrice = prices[0];
+        int maxProfit = Integer.MIN_VALUE;
 
         for (int currPrice : prices) {
-            min = Math.min(currPrice, min);      // We need to stay at the minimum price to buy at
-            maxProfit = Math.max(maxProfit, currPrice - min);       // Then we compare the initial and current max profit
+            minPrice = Math.min(currPrice, minPrice);           // We need to stay at the minimum price to buy at
+            int currProfit = currPrice - minPrice;              // We find out the current profit
+            maxProfit = Math.max(maxProfit, currProfit);        // We compare our initial profit and current profit
         }
 
         return maxProfit;
