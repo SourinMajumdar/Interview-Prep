@@ -13,6 +13,10 @@ class Solution {
             if (set.contains(x - diff) && set.contains(x + diff)) ans++;
         }
 
+//        for (int i = nums.length - 1; i >= 0; i--) {
+//            if (set.contains(nums[i] - diff) && set.contains(nums[i] - 2 * diff)) ans++;
+//        }
+
         return ans;
     }
 }
