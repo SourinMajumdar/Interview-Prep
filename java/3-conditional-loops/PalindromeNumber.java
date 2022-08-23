@@ -10,10 +10,9 @@ class Solution {
             rev = (rev * 10) + num % 10;
             num /= 10;
         }
-        
-        if (rev == x) return true;
-        return false;
+
+        return rev == x;
     }
 }
 
-// TC: , SC:
+// TC: O(n), SC: O(1)
