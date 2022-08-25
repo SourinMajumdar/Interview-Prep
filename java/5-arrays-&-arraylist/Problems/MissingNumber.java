@@ -16,5 +16,19 @@ class Solution {
 // TC: O(n) + O(nlogn), SC: O(1)
 
 
+// Better solution
 
-//
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int sum = n *(n + 1) / 2;
+
+        for(int num: nums){
+            sum-=num;
+        }
+
+        return sum;
+    }
+}
+
+// TC: O(n), SC: O(1)
