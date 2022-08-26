@@ -20,7 +20,7 @@ class Solution {
 }
 
 
-// TC: O(n), SC: O(n)
+// TC: O(nlogn), SC: O(n)
 
 
 // Using Moore's voting algorithm
