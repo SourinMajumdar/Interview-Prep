@@ -1,5 +1,5 @@
 // Link: https://leetcode.com/problems/reverse-integer/
-// Solution: https://www.youtube.com/watch?v=CRgXG1vK-wg
+// Problems.Problems.Solution: https://www.youtube.com/watch?v=CRgXG1vK-wg
 
 class Solution {
     public int reverse(int x) {

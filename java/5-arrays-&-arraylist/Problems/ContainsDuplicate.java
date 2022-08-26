@@ -25,7 +25,7 @@ class Solution {
             if (set.contains(num)) {
                 return true;
             }
-            map.add(num);
+            set.add(num);
         }
         return false;
     }
