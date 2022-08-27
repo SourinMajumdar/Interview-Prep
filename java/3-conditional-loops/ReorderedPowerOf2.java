@@ -1,5 +1,5 @@
 // Link: https://leetcode.com/problems/reordered-power-of-2/
-// Problems.Problems.Solution: https://www.youtube.com/watch?v=PBf1qzkN6z8
+// Problems.Problems.Problems.Solution: https://www.youtube.com/watch?v=PBf1qzkN6z8
 
 class Solution {
     public boolean reorderedPowerOf2(int n) {
