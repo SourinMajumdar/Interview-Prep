@@ -1,5 +1,5 @@
-// Link: https://leetcode.com/problems/number-of-islands/
-// Solution: https://www.youtube.com/watch?v=o8S2bO3pmO4
+package Problems;// Link: https://leetcode.com/problems/number-of-islands/
+// Problems.Solution: https://www.youtube.com/watch?v=o8S2bO3pmO4
 
 class Solution {
     public int numIslands(char[][] grid) {
