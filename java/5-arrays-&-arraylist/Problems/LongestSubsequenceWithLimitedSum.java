@@ -1,6 +1,9 @@
 // Link: https://leetcode.com/problems/longest-subsequence-with-limited-sum/
 // Solution: https://www.youtube.com/watch?v=vpWBTmazGjU
 
+// Weekly 308, Question 1
+// 28 August, 2022
+
 class Solution {
     public int[] answerQueries(int[] nums, int[] queries) {
         Arrays.sort(nums);
