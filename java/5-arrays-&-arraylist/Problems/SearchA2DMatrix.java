@@ -1,5 +1,4 @@
 // Problem : https://leetcode.com/problems/search-a-2d-matrix/
-// Solution:
 
 // Brute force approach: TC: O(m * n), SC: O(1)
 
@@ -41,7 +40,7 @@ class Solution {
 }
 
 // Optimised approach using BINARY SEARCH - TC: O(log(m * n)), SC: O(1)
-
+// Solution: https://www.youtube.com/watch?v=ZYpYur0znng
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length;
@@ -67,3 +66,6 @@ class Solution {
 
     }
 }
+
+// row index : mid / number of columns
+// column index: mid % number of columns
