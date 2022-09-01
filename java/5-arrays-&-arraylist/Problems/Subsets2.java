@@ -3,6 +3,7 @@
 
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
         result.add(new ArrayList<>());
 
@@ -11,7 +12,6 @@ class Solution {
             for (int i = 0; i < n; i++) {
                 List<Integer> current = new ArrayList<>(result.get(i));
                 current.add(num);
-                Collections.sort(current);
                 if (!result.contains(current)) result.add(current);
             }
         }
@@ -20,5 +20,37 @@ class Solution {
     }
 }
 
-// TC: O(n * 2^n * n * logn) -> O(n^2 * 2^n * logn)
+// TC: O(n * logn) + O(n * 2^n)
 // SC: O(n * 2^n)
+
+
+
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        generateSubsets(0, nums, new ArrayList<>(), result);
+        return result;
+    }
+
+    public void generateSubsets(int index, int[] nums, List<Integer> current, List<List<Integer>> result) {
+        if (!result.contains(current)) result.add(new ArrayList<>(current)); // n
+
+        for (int i = index; i < nums.length; i++) { // 2 ^ n
+            current.add(nums[i]);
+            generateSubsets(i + 1, nums, current, result);
+            current.remove(current.size() - 1);
+        }
+    }
+}
+
+/*
+TC: O(n * logn) + O(n * 2^n)
+
+SC:
+    - current array -> O(n)
+    - output array -> O(n * 2^n)    (if not ignored)
+    - recursion space -> O(n)
+
+Total: O(n) + O(n * 2^n) + O(n)    OR just simply O(n) leaving the rest
+ */
