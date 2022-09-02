@@ -26,11 +26,8 @@ class Solution {
 // In this way only the number which is unique (lets say b) remains till the end
 class Solution {
     public int singleNumber(int[] nums) {
-
         int ans = 0;
-
         for (int num : nums) ans ^= num;
-
         return ans;
     }
 }
