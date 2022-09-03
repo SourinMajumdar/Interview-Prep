@@ -51,7 +51,7 @@ class Solution {
 class Solution {
     public boolean isStrictlyPalindromic(int n) {
         for (int i = 2; i < n - 1; i++) {
-            String s = Integer.toString(n, i);  // returns ith base of argument n
+            String s = Integer.toString(n, i);  // returns i-th base of argument n
             if (!isPalindrome(s)) return false;
         }
 
