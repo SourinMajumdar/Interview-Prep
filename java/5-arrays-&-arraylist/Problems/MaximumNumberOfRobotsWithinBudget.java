@@ -1,3 +1,7 @@
+// Link: https://leetcode.com/problems/maximum-number-of-robots-within-budget/
+// Bi Weekly 86, 3 September 2022
+// Q4
+
 class Solution {
     public int maximumRobots(int[] chargeTimes, int[] runningCosts, long budget) {
         int n = chargeTimes.length;

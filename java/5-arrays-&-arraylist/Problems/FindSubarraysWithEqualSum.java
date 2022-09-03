@@ -1,4 +1,6 @@
 // Link: https://leetcode.com/problems/find-subarrays-with-equal-sum/
+// Bi Weekly 86, 3 September 2022
+// Q1
 
 class Solution {
     public boolean findSubarrays(int[] nums) {
