@@ -3,6 +3,8 @@
 // Weekly 308, Aug 28, 2022
 // Q2
 
+
+// Stack
 class Solution {
     public String removeStars(String s) {
         int n = s.length();
@@ -25,6 +27,8 @@ class Solution {
 
 // TC: O(n), SC: O(n)
 
+
+// No Stack
 class Solution {
     public String removeStars(String s) {
         StringBuilder str = new StringBuilder(s.length());
@@ -40,3 +44,24 @@ class Solution {
 }
 
 // TC: O(n), SC: O(1)
+
+
+// Two Pointers
+class Solution {
+    public String removeStars(String s) {
+        char[] ch = new char[s.length()];
+        int j = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if(c == '*') j--;
+            else ch[j++] = c;
+        }
+
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < j; i++) ans.append(ch[i]);
+        return ans.toString();
+    }
+}
+
+// TC: O(n); SC: O(n)
