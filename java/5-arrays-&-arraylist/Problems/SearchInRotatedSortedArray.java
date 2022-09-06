@@ -55,12 +55,41 @@ class Solution {
                     hi = mid - 1;
                 else lo = mid + 1;
 
-                // if right half is sorted
+            // if right half is sorted
             } else {
-
                 if (target >= nums[mid] && target <= nums[hi])
                     lo = mid + 1;
                 else hi = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+}
+
+// TC: O(logn), SC: O(1)
+
+
+// Coding decoded (problem's 2nd sequel inspired)
+class Solution {
+    public int search(int[] nums, int target) {
+        int lo = 0, hi = nums.length - 1;
+
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (target == nums[mid]) return mid;
+
+            // if left half is sorted
+            if (nums[lo] <= nums[mid]) {
+                if (target < nums[lo] || target > nums[mid]) {  // if target lies in right half
+                    lo = mid + 1;
+                } else hi = mid - 1;
+
+                // if left right is sorted
+            } else {
+                if (target < nums[mid] || target > nums[hi]) { // if target lies in left half
+                    hi = mid - 1;
+                } else lo = mid + 1;
             }
         }
 
