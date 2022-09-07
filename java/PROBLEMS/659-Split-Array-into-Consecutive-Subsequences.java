@@ -6,9 +6,7 @@ class Solution {
         Map<Integer, Integer> avail = new HashMap<>();
         Map<Integer, Integer> vacant = new HashMap<>();
 
-        for (int i : nums) {
-            avail.put(i, avail.getOrDefault(i, 0) + 1);
-        }
+        for (int i : nums) avail.put(i, avail.getOrDefault(i, 0) + 1);
 
         for (int n : nums) {
             if (avail.get(n) <= 0) continue;
