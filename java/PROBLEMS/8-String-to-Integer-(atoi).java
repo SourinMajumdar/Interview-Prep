@@ -16,9 +16,7 @@ class Solution {
         int n = 0;
 
         for(int j = i; j < s.length(); j++) {
-
             int c = s.charAt(j) - '0';
-
             if(c < 0 || c > 9) break;
 
             if(n > (Integer.MAX_VALUE - c) / 10 ) {
