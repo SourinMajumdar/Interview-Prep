@@ -12,11 +12,11 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 == 0) {                         // Putting only even values
                 map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+                maxCount = Math.max(maxCount, map.get(n));  // We keep calculating the maxCount of an even number here only instead of doing it separately (Otherwise it'd take extra time)
             }
         }
 
         if (map.isEmpty()) return -1;                       // if no even values, map would be empty
-        int maxCount = Collections.max(map.values());       // Get the highest existing count of an even value (Takes O(n))
 
         int ans = Integer.MAX_VALUE;
 
