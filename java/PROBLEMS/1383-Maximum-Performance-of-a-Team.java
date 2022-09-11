@@ -3,9 +3,10 @@
 // https://www.youtube.com/watch?v=Y7UTvogADH0 (NeetCode's explanation)
 // https://www.youtube.com/watch?v=V-TuDMMf-S4 (Coding Decoded's code)
 
+
 class Solution {
 
-    // Comibing the data of both the given arrays so as to make it easier to do comparisons
+    // Comibining the data of both the given arrays so as to make it easier to do comparisons
     private class Engineer {
         private int speed;
         private int efficiency;
@@ -53,14 +54,16 @@ class Solution {
     }
 }
 
+
 /*
 
 Time complexity:
   - O(n) : To add elements to engg list
   - O(n * logn) : to sort engg list
-  - O(n * logk) : adding into min heap n times of size k which will perform heapification which would take logk
+  - O(n * logk) : adding into min heap n times of size k which will perform heapification taking logk time.
 
-Total Time complexity: O(n) + O(n * logn) + O(n * logk)     OR      O(n * logn)
+Total Time complexity: O(n) + O(n * logn) + O(n * logk)
+OR simply O(n * logn)
 
 
 Space complexity: O(n + k)
