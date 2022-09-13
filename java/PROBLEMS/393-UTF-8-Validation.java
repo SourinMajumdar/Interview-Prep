@@ -8,10 +8,10 @@
      Number of Bytes   |        UTF-8 Octet Sequence
                        |              (binary)
      ------------------+-----------------------------------------
-            1          |   0xxxxxxx
-            2          |   110xxxxx 10xxxxxx
-            3          |   1110xxxx 10xxxxxx 10xxxxxx
-            4          |   11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+ a)         1          |   0xxxxxxx
+ b)         2          |   110xxxxx 10xxxxxx
+ c)         3          |   1110xxxx 10xxxxxx 10xxxxxx
+ d)         4          |   11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
                            |______| |_______|________|________|
                            1st Byte       Remaining Bytes
 */
