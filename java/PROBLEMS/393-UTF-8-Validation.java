@@ -23,10 +23,10 @@ class Solution {
         for (int n : data) {
 
             if (remBytes == 0) {
-                if (n >> 7 == 0b0) remBytes = 0;            // 1st byte of 1 length char (0xxxxxxx)
-                else if (n >> 5 == 0b110) remBytes = 1;     // 1st byte of 2 length char (110xxxxx 10xxxxxx)
-                else if (n >> 4 == 0b1110) remBytes = 2;    // 1st byte of 3 length char (1110xxxx 10xxxxxx 10xxxxxx)
-                else if (n >> 3 == 0b11110) remBytes = 3;   // 1st byte of 4 length char (11110xxx 10xxxxxx 10xxxxxx 10xxxxxx)
+                if (n >> 7 == 0b0) remBytes = 0;            // 1st byte of 1 length char (a)
+                else if (n >> 5 == 0b110) remBytes = 1;     // 1st byte of 2 length char (b)
+                else if (n >> 4 == 0b1110) remBytes = 2;    // 1st byte of 3 length char (c)
+                else if (n >> 3 == 0b11110) remBytes = 3;   // 1st byte of 4 length char (d)
                 else return false;                          // NOTA
 
             } else {                                        // if more than 1 byte, we check if the rest start with 10
