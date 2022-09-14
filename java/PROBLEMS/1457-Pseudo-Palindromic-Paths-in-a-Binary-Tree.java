@@ -56,6 +56,6 @@ class Solution {
 }
 
 // TC: O(n) -> We visit every node of the tree
-// Sc: O(h) -> where h  is the height of the tree
+// Sc: O(h) -> where h is the height of the tree / recursive stack
 
 
