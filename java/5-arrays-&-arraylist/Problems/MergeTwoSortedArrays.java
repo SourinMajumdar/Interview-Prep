@@ -9,7 +9,8 @@ class Solution {
     }
 }
 
-// TC: O(m + n), SC: O(1)
+// TC: O(m + n) + O((m+n) * log(m+n)) => O((m+n) * log(m+n))
+// SC: O(1)
 
 // OR
 
@@ -30,11 +31,11 @@ public static void arraycopy(
 )
 
 Params:
-    src – the source array.
-    srcPos – starting position in the source array.
-    dest – the destination array.
+    src     – the source array.
+    srcPos  – starting position in the source array.
+    dest    – the destination array.
     destPos – starting position in the destination data.
-    length – the number of array elements to be copied.
+    length  – the number of array elements to be copied.
 */
 
 
@@ -42,25 +43,24 @@ Params:
 // Using two pointers (https://www.youtube.com/watch?v=FyzWXlSMNoI)
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int ptr1 = m - 1, ptr2 = n - 1, i = m + n -1;
+        int i = m - 1, j = n - 1;
+        int k = m + n - 1;
 
-        while( ptr1 >=0 && ptr2 >= 0 && i >= 0 ) {
+        // We start from the end of both arrays
+        while (i >= 0 && j >= 0) {
 
-            if(nums1[ptr1] < nums2[ptr2]) {
-                nums1[i--] = nums2[ptr2--];
-
-            } else { // nums1[ptr1] > nums2[ptr2] or (nums1[ptr1] == nums2[ptr2]) {
-                nums1[i--] = nums1[ptr1--];
+            if (nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            }
+            else {
+                nums1[k--] = nums2[j--];
             }
         }
 
-        while ( ptr1 >= 0 ) {
-            nums1[ptr1--] = nums1[i--];
-        }
-
-        while (ptr2 >= 0) {
-            nums1[ptr2--] = nums2[i--];
-        }
+        // Either of i or j would remain greater than 0, so to fill the remaining array we run another loop
+        // Either of the two loops will be executed
+        while (i >= 0) nums1[k--] = nums1[i--];     // if j had reached 0 first
+        while (j >= 0) nums1[k--] = nums2[j--];     // if i had reached 0 first
     }
 }
 
