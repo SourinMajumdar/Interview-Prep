@@ -141,6 +141,7 @@ class Solution {
     }
 }
 
-// TC: O(n * logn), SC: O(2n) => O(n)
+// TC: O((n * log(n)) + (n * k^2))
+// SC: O(2n) => O(n)
 
 
