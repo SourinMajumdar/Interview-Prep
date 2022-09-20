@@ -25,7 +25,6 @@ class Solution {
     }
 }
 
-// TC: O(m * n), SC: O(m * n)
 
 // iterating from the start
 class Solution {
@@ -50,3 +49,6 @@ class Solution {
         return dp[s1.length()][s2.length()];
     }
 }
+
+
+// TC: O(m * n), SC: O(m * n)
