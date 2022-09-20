@@ -1,6 +1,30 @@
 // Link: https://leetcode.com/problems/maximum-length-of-repeated-subarray/
 // Solution: https://www.youtube.com/watch?v=hmXH7MzcGv4
 
+/*
+nums1 = [1,2,4,5], nums2 = [5,7,2,4]
+
+             1     2     4     5       <- nums1
+    |-----------------------------|
+    |  0  |  0  |  0  |  0  |  0  |    -> nums1.length + 1
+    |-----------------------------|
+  5 |  0  |  0  |  0  |  0  |  1  |
+    |-----------------------------|
+  7 |  0  |  0  |  0  |  0  |  0  |       2D dp array
+    |-----------------------------|
+  2 |  0  |  0  |  1  |  0  |  0  |
+    |-----------------------------|
+  4 |  0  |  0  |  0  |  2  |  0  |
+    |-----------------------------|
+       ^
+  ^   nums2.length + 1
+nums2
+
+max = 2 <- answer
+
+*/
+
+
 class Solution {
     public int findLength(int[] nums1, int[] nums2) {
         int n = nums1.length, m = nums2.length;
