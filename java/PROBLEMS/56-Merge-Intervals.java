@@ -13,7 +13,6 @@ class Solution {
         ans.add(curr_interval);
 
         for (int[] interval : intervals) {
-            int curr_begin = curr_interval[0];
             int curr_end = curr_interval[1];
 
             int next_begin = interval[0];
@@ -34,3 +33,29 @@ class Solution {
 }
 
 // TC: O(nlogn) + O(n), SC: O(n)
+
+
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        List<int[]> ans = new ArrayList<>();
+
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+
+        for (int[] curr : intervals) {
+            if (curr[0] <= end) {
+                end = Math.max(end, curr[1]);
+            }
+            else {
+                ans.add(new int[] {start, end});
+                start = curr[0];
+                end = curr[1];
+            }
+        }
+
+        ans.add(new int[] {start, end});
+        return ans.toArray(new int[0][]);
+    }
+}
