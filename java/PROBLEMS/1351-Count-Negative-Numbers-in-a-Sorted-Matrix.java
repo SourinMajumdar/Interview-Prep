@@ -1,5 +1,6 @@
 // Link: https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/
 
+
 // Brute force
 class Solution {
     public int countNegatives(int[][] grid) {
@@ -15,6 +16,9 @@ class Solution {
 }
 
 // TC: O(m * n), SC: O(1)
+
+
+
 
 // Row wise Binary search
 
@@ -47,6 +51,7 @@ class Solution {
 }
 
 // TC: O(m * logn), SC: O(1)
+
 
 
 // Better (staircase)
