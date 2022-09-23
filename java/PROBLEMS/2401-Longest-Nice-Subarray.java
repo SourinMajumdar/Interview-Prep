@@ -5,21 +5,51 @@
 
 class Solution {
     public int longestNiceSubarray(int[] nums) {
-        int res = 1;
-        for(int i = 0; i < nums.length - res; i++) {
-            int first = nums[i];
-            int count = 1;
+        int maxLen = 1;
+
+        for(int i = 0; i < nums.length - maxLen; i++) {
+            int currLen = 1;
+            int subarrayOR = nums[i];
+
             for (int j = i + 1; j < nums.length; j++) {
-                if ((first & nums[j]) == 0) {
-                    first = first | nums[j];
-                    count++;
-                } else break;
+                if ((subarrayOR & nums[j]) == 0) {
+                    subarrayOR |= nums[j];
+                    currLen++;
+                }
+
+                else break;
             }
-            res = Math.max(res, count);
+
+            maxLen = Math.max(maxLen, currLen);
         }
 
-        return res;
+        return maxLen;
     }
 }
 
 // TC: O(n ^ 2), SC: O(1)
+
+
+
+class Solution {
+    public int longestNiceSubarray(int[] nums) {
+        int start = 0,
+            maxLen = 1, subarrayOR = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+
+            while ((subarrayOR & nums[i]) != 0) {
+                subarrayOR ^= nums[start++];    // a ^ (a|b|c|d) = 0|b|c|d = b|c|d
+            }
+
+            subarrayOR |= nums[i];
+
+            int currLen = i - start + 1;
+            maxLen = Math.max(maxLen, currLen);
+        }
+
+        return maxLen;
+    }
+}
+
+// TC: O(n), SC: O(1)
