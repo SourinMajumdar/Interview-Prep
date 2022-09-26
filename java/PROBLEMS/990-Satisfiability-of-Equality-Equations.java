@@ -1,6 +1,9 @@
 // Link: https://leetcode.com/problems/satisfiability-of-equality-equations/
 // Solution: https://www.youtube.com/watch?v=uvSXZWtlwTo&t=733s
 
+// https://leetcode.com/problems/satisfiability-of-equality-equations/discuss/234474/C%2B%2B-7-lines-with-picture-union-find
+// https://leetcode.com/problems/satisfiability-of-equality-equations/discuss/2625039/LeetCode-The-Hard-Way-Explained-Line-By-Line
+
 class Solution {
     int[] parent;
     int[] rank;
