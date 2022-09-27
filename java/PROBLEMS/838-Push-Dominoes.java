@@ -114,5 +114,5 @@ class Solution {
     }
 }
 
-// TC: O(n + O(n) + O(n) => O(n)
+// TC: O(n) + O(n) + O(n) => O(n)
 // SC: O(n) + O(n) => O(n)
