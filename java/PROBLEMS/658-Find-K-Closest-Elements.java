@@ -63,4 +63,4 @@ class Solution {
     }
 }
 
-// TC: O(n), SC: O(k)
+// TC: O(n - k) + O(k), SC: O(k)
