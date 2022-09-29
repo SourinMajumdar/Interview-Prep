@@ -1,6 +1,7 @@
 // Link: https://leetcode.com/problems/find-k-closest-elements/
 // Solution: https://www.youtube.com/watch?v=C_kHKUJuK0Y
 
+// Priority Queue
 class Solution {
     private class Node {
         private int diff;
@@ -40,7 +41,7 @@ class Solution {
 // SC: O(k)
 
 
-
+// Two pointers
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         int low = 0, high = arr.length - 1;
