@@ -1,6 +1,9 @@
 // Link: https://leetcode.com/problems/remove-letter-to-equalize-frequency/
 // Solution: https://www.youtube.com/watch?v=onYybEuaIpg
 
+// BiWeekly 88, 1 Oct 2022
+// Q1
+
 class Solution {
     public boolean equalFrequency(String word) {
         for (int i = 0; i < word.length(); i++) {

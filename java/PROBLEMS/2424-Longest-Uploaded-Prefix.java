@@ -1,6 +1,9 @@
 // Link: https://leetcode.com/problems/longest-uploaded-prefix/
 // Solution: https://www.youtube.com/watch?v=4F5GxWdPfks
 
+// BiWeekly 88, 1 Oct 2022
+// Q2
+
 class LUPrefix {
     Set<Integer> set;
     int maxConsecutiveVideo = 0;
