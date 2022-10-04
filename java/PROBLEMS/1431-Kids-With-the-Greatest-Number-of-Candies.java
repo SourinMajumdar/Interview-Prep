@@ -28,15 +28,14 @@ class Solution {
 
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        List<Boolean> ans = new ArrayList<>();
-        int max = Integer.MIN_VALUE;
-        for(int i=0; i<candies.length; ++i){
-            if(candies[i] > max) max = candies[i];
-        }
+        int max = 0;
+        for (int i : candies) max = Math.max(i, max);
 
-        for(int i=0; i<candies.length; ++i){
-            boolean bool = candies[i] >= max - extraCandies;
-            ans.add(bool);
+        List<Boolean> ans = new ArrayList<>();
+
+        for (int i = 0; i < candies.length; i++) {
+            candies[i] += extraCandies;
+            ans.add(candies[i] >= max);
         }
 
         return ans;
