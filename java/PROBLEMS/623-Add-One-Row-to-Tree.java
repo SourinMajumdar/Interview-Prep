@@ -48,5 +48,39 @@ class Solution {
     }
 }
 
-// TC:
-// Sc:
+// TC: O(n) - n is the number of nodes in the tree
+// SC: O(x) - x is the maximum possible number of nodes our queue can store
+
+
+// Depth First Search
+class Solution {
+    public TreeNode addOneRow(TreeNode root, int val, int depth) {
+        if (depth == 1) {
+            TreeNode newNode = new TreeNode(val);
+            newNode.left = root;
+            return newNode;
+        }
+
+        dfs(root, val, depth, 1);
+        return root;
+    }
+
+    private void dfs(TreeNode root, int val, int depth, int level) {
+        if (root == null) return;
+
+        if (level == depth - 1) {
+            TreeNode newNode = new TreeNode(val);
+            newNode.left = root.left;
+            root.left = newNode;
+
+            newNode = new TreeNode(val);
+            newNode.right = root.right;
+            root.right = newNode;
+        }
+
+        dfs(root.left, val, depth, level + 1);
+        dfs(root.right, val, depth, level + 1);
+    }
+}
+
+// TC: O(n), SC: O(depth)
