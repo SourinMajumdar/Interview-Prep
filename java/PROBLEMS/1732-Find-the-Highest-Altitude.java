@@ -28,3 +28,5 @@ class Solution {
         return max;
     }
 }
+
+// TC: O(n), SC: O(1)
