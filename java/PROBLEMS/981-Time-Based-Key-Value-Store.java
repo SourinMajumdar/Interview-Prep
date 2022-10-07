@@ -1,7 +1,6 @@
 // Link: https://leetcode.com/problems/time-based-key-value-store/
 // Solution: https://www.youtube.com/watch?v=kZAZqn_J8Fo
 
-
 class TimeMap {
     private Map<String, List<Data>> map;
 
@@ -46,6 +45,29 @@ class TimeMap {
 }
 
 // TC: O(logn), SC: O(n)
+
+
+/// Solution: https://www.youtube.com/watch?v=uNyAMxr7JGI&t=485s
+// TreeMap as value
+class TimeMap {
+    Map<String, TreeMap<Integer, String>> store;
+
+    public TimeMap() {
+        store = new HashMap<>();
+    }
+
+    public void set(String key, String value, int timestamp) {
+        store.computeIfAbsent(key, val -> new TreeMap<>()).put(timestamp, value);
+    }
+
+    public String get(String key, int timestamp) {
+        Integer version = store.containsKey(key) ? store.get(key).floorKey(timestamp) : null;
+        return (version != null) ? store.get(key).get(version) : "";
+    }
+}
+
+// TC: O(logn), SC: O(n)
+
 
 /**
  * Your TimeMap object will be instantiated and called as such:
