@@ -3,25 +3,55 @@ Problem: https://leetcode.com/problems/3sum-closest/
 Solution: https://www.youtube.com/watch?v=qBr2hq4daWE
  */
 
+// Full brute force:
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
-        int result = nums[0] + nums[1] + nums[nums.length - 1];
-        Arrays.sort(nums);
+        int n = nums.length;
+        int finalSum = nums[0] + nums[1] + nums[n - 1];
 
-        for (int i = 0; i < nums.length - 2; i++) {
-            int lo = i + 1, hi = nums.length - 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    int sum = nums[i] + nums[j] + nums[k];
 
-            while(lo < hi) {
-                int currentSum = nums[i] + nums[lo] + nums[hi];
-
-                if(currentSum > target) hi--;
-                else lo++;
-
-                if(Math.abs(currentSum - target) < Math.abs(result - target)) {
-                    result = currentSum;
+                    if (Math.abs(target - sum) < Math.abs(target - finalSum)) {
+                        finalSum = sum;
+                    }
                 }
             }
         }
-        return result;
+
+        return finalSum;
     }
 }
+
+// TC: O(n ^ 3), SC: O(1)
+
+
+
+
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int finalSum = nums[0] + nums[1] + nums[n - 1];
+
+        for (int i = 0; i < nums.length; i++) {
+            int lo = i + 1, hi = n - 1;
+
+            while (lo < hi) {
+                int currSum = nums[i] + nums[lo] + nums[hi];
+
+                if (currSum < target) lo++;
+                else hi--;
+
+                if (Math.abs(target - currSum) < Math.abs(target - finalSum)) {
+                    finalSum = currSum;
+                }
+            }
+        }
+
+        return finalSum;
+    }
+}
+
+// TC: O(n ^ 2), SC: O(1)

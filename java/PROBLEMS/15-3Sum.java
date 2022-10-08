@@ -63,6 +63,7 @@ class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> ans = new HashSet<>();
         int n = nums.length;
+
         Arrays.sort(nums);
 
         for (int i = 0; i < n; i++) {
@@ -90,31 +91,32 @@ class Solution {
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> ans =  new LinkedList<>();
+        List<List<Integer>> ans = new ArrayList<>();
 
         for (int i = 0; i < nums.length - 2; i++) {
-            if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
-                int lo = i + 1, hi = nums.length - 1, sum = -nums[i];
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                int lo = i + 1, hi = nums.length - 1;
+                int sum = -nums[i];
 
-                while ( lo < hi ) {
+                while (lo < hi) {
                     if (nums[lo] + nums[hi] == sum) {
                         ans.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
 
-                        while(lo < hi && nums[lo] == nums[lo + 1]) lo++;
-                        while(lo < hi && nums[hi] == nums[hi - 1]) hi--;
+                        while (lo < hi && nums[lo] == nums[lo + 1]) lo++;
+                        while (hi > lo && nums[hi] == nums[hi - 1]) hi--;
 
                         lo++; hi--;
                     }
+
                     else if (nums[lo] + nums[hi] < sum) lo++;
                     else hi--;
-
                 }
             }
         }
+
         return ans;
     }
 }
 
-// TC: O(n^2), SC: O(M)
+// TC: O(n ^ 2), SC: O(k) - k is the number of unique triplets
 // Auxiliary space: O(1)
-// M --> Number of unique triplets
