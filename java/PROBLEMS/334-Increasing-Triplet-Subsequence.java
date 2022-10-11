@@ -19,13 +19,46 @@ class Solution {
 // TC: O(n), SC: O(1)
 
 
+// Solution: https://www.youtube.com/watch?v=xZ5FBqk-cFw
 class Solution {
     public boolean increasingTriplet(int[] nums) {
         int n = nums.length;
 
-        for (int i = 0; i < l; i++)
-            for (int j = i + 1;j< n; j++)
-                for (int k= j + 1; k < n; k++)
+        int[] leftMin = new int[n];
+        leftMin[0] = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            leftMin[i] = Math.min(leftMin[i - 1], nums[i]);
+        }
+
+        int[] rightMin = new int[n];
+        rightMin[n - 1] = nums[n - 1];
+
+        for (int i = n - 2; i >= 0; i--) {
+            rightMin[i] = Math.max(rightMin[i + 1], nums[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (leftMin[i] < nums[i] && nums[i] < rightMin[i]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+// TC: O(n) + O(n) => O(n)
+// SC: O(n) + O(n) => O(n)
+
+
+class Solution {
+    public boolean increasingTriplet(int[] nums) {
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++)
+            for (int j = i + 1; j < n; j++)
+                for (int k = j + 1; k < n; k++)
                     if (nums[i] < nums[j] && nums[j] < nums[k])
                         return true;
 
