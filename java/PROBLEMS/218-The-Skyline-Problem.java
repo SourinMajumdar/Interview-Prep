@@ -21,9 +21,8 @@ class Solution {
         int prevMax = 0;
 
         for (int[] height : heights) {  // O(n)
-            // priority queue operations take O(logn)
-            if (height[1] < 0) pq.offer(-height[1]);
-            else pq.remove(height[1]);
+            if (height[1] < 0) pq.offer(-height[1]);    // takes O(logn)
+            else pq.remove(height[1]);                  // takes O(n)
 
             int currMax = pq.peek();
 
@@ -37,5 +36,5 @@ class Solution {
     }
 }
 
-// TC: O(n) + 2 * O(n * logn) => O(n * logn)
+// TC: O(n) +O(n * (n + logn)) => O(n ^ 2)
 // SC: O(n)
