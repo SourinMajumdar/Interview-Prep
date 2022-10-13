@@ -3,16 +3,14 @@
 
 class Solution {
     public int pivotIndex(int[] nums) {
-
         int totalSum = 0;
-        for (int ele : nums) totalSum += ele;
+        for (int i : nums) totalSum += i;
 
         int leftSum = 0;
 
         for (int i = 0; i < nums.length; i++) {
-
-            if (i != 0) leftSum += nums[i - 1];
-            if (totalSum - leftSum - nums[i] == leftSum){
+            if (i > 0) leftSum += nums[i - 1];
+            if (leftSum == totalSum - leftSum - nums[i]) {
                 return i;
             }
         }
