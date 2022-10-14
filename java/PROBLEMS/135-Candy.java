@@ -8,6 +8,7 @@ class Solution {
         int n = ratings.length;
 
         int[] l2r = new int[n], r2l = new int[n];
+
         Arrays.fill(l2r, 1);
         Arrays.fill(r2l, 1);
 
@@ -24,6 +25,7 @@ class Solution {
         }
 
         int[] finalArr = new int[n];
+
         for (int i = 0; i < n; i++) {
             finalArr[i] = Math.max(l2r[i], r2l[i]);
         }
@@ -46,6 +48,7 @@ class Solution {
         int n = ratings.length;
 
         int[] distribution = new int[n];
+
         Arrays.fill(distribution, 1);
 
         for (int i = 0; i < n - 1; i++) {
