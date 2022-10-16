@@ -5,11 +5,13 @@ class Solution {
     public int findDuplicate(int[] nums) {
         Arrays.sort(nums);
         int ans = 0;
+
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] == nums[i + 1]) {
                 ans = nums[i];
             }
         }
+
         return ans;
     }
 }
@@ -21,11 +23,13 @@ class Solution {
     public int findDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         int ans = nums[0];
+
         for (int num : nums) {
             if (set.contains(num)) {
                 ans = num;
                 break;
             }
+
             set.add(num);
         }
 
@@ -40,12 +44,15 @@ class Solution {
 class Solution {
     public int findDuplicate(int[] nums) {
         int ans = nums[0];
+
         for (int i = 0; i < nums.length; i++) {
             int index = Math.abs(nums[i]) - 1;
+
             if (nums[index] < 0) {
                 ans = Math.abs(nums[i]);
                 break;
             }
+
             nums[index] = - nums[index];
         }
 
@@ -55,3 +62,28 @@ class Solution {
 
 // TC: O(n), SC: O(1)
 
+
+// Floyd's cycle detection technique
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int slow = nums[0], fast = nums[0];
+
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+
+        } while (slow != fast);
+
+        fast = nums[0];
+
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+
+        return slow;
+    }
+}
+
+// TC: O(n), SC: O(1)
