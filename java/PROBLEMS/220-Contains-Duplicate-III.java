@@ -40,7 +40,7 @@ class Solution {
     }
 }
 
-// TC: O(n ^ 2), SC
+// TC: O(n ^ 2), SC: O(1)
 
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
