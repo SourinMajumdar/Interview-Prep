@@ -17,6 +17,8 @@ class Solution {
 
 // TC: O(n ^ 2), SC: O(1)
 
+
+
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         int i = 0, j = 1;
@@ -41,6 +43,8 @@ class Solution {
 }
 
 // TC: O(n ^ 2), SC: O(1)
+
+
 
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
