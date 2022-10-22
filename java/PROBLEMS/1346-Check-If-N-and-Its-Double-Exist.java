@@ -32,7 +32,8 @@ class Solution {
     }
 }
 
-// TC: O(n), SC: O(n)
+// TC: O(n * logn), SC: O(n)
+// set.contains() costs O(logn) at worst case
 
 
 class Solution {
@@ -54,7 +55,9 @@ class Solution {
     }
 }
 
-// TC: O(n), SC: O(n)
+// TC: O(n) + O(n * n) => O(n ^ 2)
+// SC: O(n)
+// HashMap.containsKey() costs O(n) at worst case
 
 
 // BS
