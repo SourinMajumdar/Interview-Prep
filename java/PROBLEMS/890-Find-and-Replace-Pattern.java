@@ -1,7 +1,19 @@
-// Link: https://www.youtube.com/watch?v=6Qkail843d8
-// Solution: https://www.youtube.com/watch?v=6Qkail843d8
+// Link: https://leetcode.com/problems/find-and-replace-pattern/
+
 
 class Solution {
+    public List<String> findAndReplacePattern(String[] words, String pattern) {
+        List<String> ans = new ArrayList<>();
+
+        for (String s : words) {
+            if (isIsomorphic(s, pattern)) {
+                ans.add(s);
+            }
+        }
+
+        return ans;
+    }
+
     public boolean isIsomorphic(String s, String t) {
         Map<Character, Character> map1 = new HashMap<>();
         Map<Character, Boolean> map2 = new HashMap<>();
@@ -27,7 +39,7 @@ class Solution {
     }
 }
 
-// TC: O(n), SC: O(n)
+// TC: O(n * k), SC: O(n)
 
 
-// Similar question: 890, 290
+// Similar question: 205, 290
