@@ -42,4 +42,36 @@ class Solution {
 // TC: O(n * k), SC: O(n)
 
 
+
+class Solution {
+    public List<String> findAndReplacePattern(String[] words, String pattern) {
+        String p = normalize(pattern);
+        List<String> ans = new ArrayList<String>();
+
+        for (String s : words) {
+            if (p.equals(normalize(s))) {
+                ans.add(s);
+            }
+        }
+
+        return ans;
+    }
+
+    public String normalize(String str) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        StringBuilder ans = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            map.putIfAbsent(c, i);
+            ans.append(map.get(c));
+        }
+
+        return ans.toString();
+    }
+}
+
+// TC: O(n * k), SC: O(n)
+
+
 // Similar question: 205, 290

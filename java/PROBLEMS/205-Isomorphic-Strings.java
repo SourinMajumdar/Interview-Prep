@@ -1,4 +1,4 @@
-// Link: https://www.youtube.com/watch?v=6Qkail843d8
+// Link: https://leetcode.com/problems/isomorphic-strings/
 // Solution: https://www.youtube.com/watch?v=6Qkail843d8
 
 class Solution {
