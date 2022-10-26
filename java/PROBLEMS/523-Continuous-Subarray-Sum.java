@@ -46,7 +46,7 @@ class Solution {
             currSum += nums[i];
             int rem = 0;
 
-            if (k != 0) rem = currSum % k;      // k can't be 0 when we do a number % k
+            rem = currSum % k;      // k can't be 0 when we do a number % k
 
             if (map.containsKey(rem)) {         // if that remainder already exists
                 if (i - map.get(rem) > 1) {     // Length checking Step

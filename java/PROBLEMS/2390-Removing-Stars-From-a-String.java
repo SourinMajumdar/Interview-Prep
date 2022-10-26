@@ -59,9 +59,11 @@ class Solution {
         }
 
         StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < j; i++) ans.append(ch[i]);
+        for (char c : ch) ans.append(c);
         return ans.toString();
     }
 }
 
 // TC: O(n); SC: O(n)
+
+
