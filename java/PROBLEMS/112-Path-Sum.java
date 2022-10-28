@@ -28,8 +28,7 @@ class Solution {
         currSum += node.val;
 
         if (node.left == null && node.right == null) {
-            if (currSum == targetSum) return true;
-            return false;
+            return currSum == targetSum;
         }
 
         boolean left  = dfs(node.left, targetSum, currSum);
@@ -48,8 +47,7 @@ class Solution {
         if (root == null) return false;
 
         if (root.left == null && root.right == null) {
-            if (targetSum - root.val == 0) return true;
-            return false;
+            return targetSum - root.val == 0;
         }
 
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
