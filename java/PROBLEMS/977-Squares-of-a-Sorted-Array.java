@@ -17,21 +17,23 @@ class Solution {
 class Solution {
     public int[] sortedSquares(int[] nums) {
         int n = nums.length;
-        int idx = n - 1;
         int l = 0, r = n - 1;
+        int idx = n - 1;
 
         int[] ans = new int[n];
 
         while (l <= r) {
-            if (nums[l] * nums[l] > nums[r] * nums[r]) {
-                ans[idx] = nums[l] * nums[l];
+            int sql = nums[l] * nums[l];
+            int sqr = nums[r] * nums[r];
+
+            if (sql > sqr) {
+                ans[idx] = sql;
                 l++;
             }
             else {
-                ans[idx] = nums[r] * nums[r];
+                ans[idx] = sqr;
                 r--;
             }
-
             idx--;
         }
 
