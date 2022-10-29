@@ -35,5 +35,33 @@ class Solution {
     }
 }
 
-// TC: O(2 * n) + O(n * logn) => O(n ** logn)
+// TC: O(2 * n) + O(n * logn) => O(n * logn)
+// SC: O(n)
+
+
+class Solution {
+    public int earliestFullBloom(int[] plantTime, int[] growTime) {
+        int n = plantTime.length;
+        int[][] plants = new int[n][2];
+
+        for (int i = 0; i < n; i++) {
+            plants[i][0] = plantTime[i];
+            plants[i][1] = growTime[i];
+        }
+
+        Arrays.sort(plants, (a, b) -> b[1] - a[1]);
+
+        int time = 0;
+        int max = 0;
+
+        for (int i = 0; i < n; i++) {
+            time += plants[i][0];
+            max = Math.max(max, time + plants[i][1]);
+        }
+
+        return max;
+    }
+}
+
+// TC: O(2 * n) + O(n * logn) => O(n * logn)
 // SC: O(n)
