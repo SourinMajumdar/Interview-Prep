@@ -64,3 +64,32 @@ class Solution {
 
 
 // TC: O(n), SC: O(n)
+
+
+
+// BFS
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> set = new HashSet<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            TreeNode curr = q.poll();
+            int need = k - curr.val;
+
+            if (set.contains(need)) {
+                return true;
+            }
+
+            set.add(curr.val);
+
+            if (curr.left != null) q.offer(curr.left);
+            if (curr.right != null) q.offer(curr.right);
+        }
+
+        return false;
+    }
+}
+
+// TC: O(n), SC: O(n)
