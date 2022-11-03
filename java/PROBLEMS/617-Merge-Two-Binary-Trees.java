@@ -1,3 +1,5 @@
+// Link: https://leetcode.com/problems/merge-two-binary-trees/
+
 class Solution {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
         return merge(root1, root2);
@@ -16,3 +18,5 @@ class Solution {
         return t1;
     }
 }
+
+// TC: O(n), SC: O(n)
