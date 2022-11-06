@@ -8,7 +8,6 @@ class Solution {
 
             for (int i = 0; i < s.length(); i++) {
                 String reordered = s.substring(i) + s.substring(0, i);
-
                 if (ans.compareTo(reordered) > 0) {
                     ans = reordered;
                 }
