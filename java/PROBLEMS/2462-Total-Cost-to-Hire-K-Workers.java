@@ -77,4 +77,5 @@ class Solution {
 }
 
 
-// TC: O(n * logn), SC: O(
+// TC: O(n * logn) + O(min(k, n)*logn) + O(k * logn) => O(n * logn)
+// SC: O(n)
