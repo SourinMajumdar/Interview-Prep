@@ -12,3 +12,11 @@ class Solution {
 
 // TC: O(n / 2) -> O(n)
 // SC: O(1)
+
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n <= 0 ? false : (n & (n - 1)) == 0;
+    }
+}
+
+// TC: O(1)
