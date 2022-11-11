@@ -21,9 +21,9 @@ class Solution {
 
         StringBuilder sb = new StringBuilder();
 
-        for (Pair node : stack) {
-            while (node.count-- > 0) {
-                sb.append(node.character);
+        for (Pair p : stack) {
+            while (p.count-- > 0) {
+                sb.append(p.character);
             }
         }
 
