@@ -17,3 +17,13 @@ class Solution {
 
 // TC: O(n), SC: O(n)
 // n is the number of digits
+
+
+
+class Solution {
+    public int maximum69Number (int num) {
+        return Integer.valueOf(String.valueOf(num).replaceFirst("6", "9"));
+    }
+}
+
+// TC: O(n), SC: O(1)
