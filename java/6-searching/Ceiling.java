@@ -13,7 +13,7 @@ public class Ceiling {
             else if (target>array[mid]) start = mid+1;  // if target lies in 2nd half
             else return mid;
         }
-        return array[start]; // returns the ceiling element
+        return array[end]; // returns the ceiling element
     }
 
     /*

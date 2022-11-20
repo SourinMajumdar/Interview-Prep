@@ -13,7 +13,7 @@ public class Floor {
             else if (target>array[mid]) start = mid+1;  // if target lies in 2nd half
             else return mid;
         }
-        return array[end]; // returns the floor element
+        return array[start]; // returns the floor element
 
         /*
         When the target element is found, the element itself is return coz it is its floor itself.
