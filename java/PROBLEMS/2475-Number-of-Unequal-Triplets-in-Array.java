@@ -59,3 +59,29 @@ class Solution {
 }
 
 // TC: O(n ^ 3), SC: O(1)
+
+
+// https://leetcode.com/problems/number-of-unequal-triplets-in-array/discuss/2831702/O(n)
+class Solution {
+    public int unequalTriplets(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums){
+            map.put(num , map.getOrDefault(num ,0)+1);
+        }
+
+        int left = 0, right = nums.length;
+        int ans = 0;
+
+        for (int key : map.keySet()){
+            int count = map.get(key);
+            right -= count;
+            ans += left * count * right;
+            left += count;
+        }
+
+        return ans;
+    }
+}
+
+// TC: O(n), SC: O(n)
