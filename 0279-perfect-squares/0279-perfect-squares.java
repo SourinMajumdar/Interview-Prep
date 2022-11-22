@@ -9,10 +9,10 @@ class Solution {
             
             for (int j = 1; j * j <= i; j++) {
                 int rem = i - j * j;
-                min = Math.min(dp[rem] + 1, min);
+                min = Math.min(dp[rem], min);
             }
             
-            dp[i] = min;
+            dp[i] = min + 1;
         }
         
         return dp[n];
