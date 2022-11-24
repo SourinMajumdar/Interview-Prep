@@ -40,4 +40,5 @@ class NumArray {
     }
 }
 
-// TC: O(n), SC: O(n)
+// TC: O(k * n), SC: O(n)
+// let k be the number of calls made to sumRange()
