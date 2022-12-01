@@ -20,3 +20,24 @@ class Solution {
 }
 
 // TC: O(n), SC: O(1)
+
+
+class Solution {
+    public boolean halvesAreAlike(String s) {
+        int n = s.length();
+        int i = 0, j = n / 2;
+
+        Set<Character> set = Set.of(
+                'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'
+        );
+
+        int firstHalf = 0, secondHalf = 0;
+
+        while (j < n) {
+            if (set.contains(s.charAt(i++))) firstHalf++;
+            if (set.contains(s.charAt(j++))) secondHalf++;
+        }
+
+        return firstHalf == secondHalf;
+    }
+}
