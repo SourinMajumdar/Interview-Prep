@@ -2,7 +2,6 @@
 
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        
         ArrayList<Integer> list = new ArrayList<>();    // Create an arraylist
         ListNode temp = head;
         
@@ -81,6 +80,48 @@ class Solution {
 - SC: O(1)
 
 */
+
+
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if (head.next == null) return true;
+
+        ListNode fast = head, slow = head;
+        ListNode mid = null;
+
+        while (fast != null && fast.next != null) {
+            mid = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        mid.next = null;
+        ListNode rev = reverse(slow);
+
+        ListNode head1 = head, head2 = rev;
+
+        while (head1 != null && head2 != null) {
+            if (head1.val != head2.val) return false;
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        return true;
+    }
+
+    public ListNode reverse(ListNode head) {
+        ListNode prev = null;
+
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+
+        return prev;
+    }
+}
 
 
 
