@@ -17,7 +17,7 @@ class Solution {
             }
 
             ans.add(trimRight(sb.toString()));
-            // ans.add(sb.toString().stripTrailing());
+            // ans.add(sb.toString().stripTrailing());      <-- we can use this method as well
             // ans.add(sb.toString().replaceAll("\\s+$", ""));      --> greater runtime
         }
 
