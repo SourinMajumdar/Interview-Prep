@@ -37,6 +37,7 @@ class Solution{
             if (putVowel) {
                 while (i < 26 && vowelFreq[i] == 0) i++;
                 if (i == 26) break;
+
                 sb.append((char) ('a' + i));
                 vowelFreq[i]--;
                 putVowel = false;
@@ -44,6 +45,7 @@ class Solution{
             else {
                 while (j < 26 && consFreq[j] == 0) j++;
                 if (j == 26) break;
+
                 sb.append((char) ('a' + j));
                 consFreq[j]--;
                 putVowel = true;
