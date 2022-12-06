@@ -25,21 +25,10 @@ class Solution {
             i++;
         }
 
-        oddHead.next = null; evenHead.next = null;
+        evenHead.next = null;
+        oddHead.next = even.next;
 
-        ListNode ans = new ListNode(-1);
-        ListNode ansHead = ans;
-        temp = odd.next;
-
-        while (temp != null) {
-            ansHead.next = temp;
-            ansHead = ansHead.next;
-            temp = temp.next;
-        }
-
-        ansHead.next = even.next;
-
-        return ans.next;
+        return odd.next;
     }
 }
 
