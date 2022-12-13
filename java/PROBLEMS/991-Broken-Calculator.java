@@ -29,8 +29,6 @@ class Solution {
         }
 
         return result + (startValue - target);
-
-
     }
 }
 
