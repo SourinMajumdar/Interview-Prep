@@ -43,7 +43,6 @@ class Solution {
 class Solution {
     public List<Integer> findDuplicates(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-
         for (int n : nums) {
             map.put(n, map.getOrDefault(n, 0) + 1);
         }
@@ -67,7 +66,6 @@ class Solution {
 class Solution {
     public List<Integer> findDuplicates(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-
         for (int n : nums) {
             map.put(n, map.getOrDefault(n, 0) + 1);
         }
