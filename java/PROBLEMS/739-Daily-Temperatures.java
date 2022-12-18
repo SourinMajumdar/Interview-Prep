@@ -45,3 +45,35 @@ class Solution {
 }
 
 // TC: O(n), SC: O(n)
+
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
+        int[] ans = new int[n];
+        Stack<Pair> st = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+            while (!st.isEmpty() && temperatures[i] > st.peek().temp) {
+                ans[st.peek().idx] = i - st.peek().idx;
+                st.pop();
+            }
+
+            st.push(new Pair(temperatures[i], i));
+        }
+
+        return ans;
+    }
+
+    class Pair {
+        int temp;
+        int idx;
+
+        Pair(int temp, int idx) {
+            this.temp = temp;
+            this.idx = idx;
+        }
+    }
+}
+
+// TC: O(n), SC: O(n)
