@@ -1,5 +1,5 @@
 // Link: https://practice.geeksforgeeks.org/problems/a-difference-of-values-and-indexes0302/1
-
+// https://leetcode.com/discuss/interview-question/749936/maximum-absolute-difference-amazon
 
 class Solution{
     public static int maxDistance (int arr[], int n) {
