@@ -6,30 +6,63 @@
 
 class Solution {
     public int[] answerQueries(int[] nums, int[] queries) {
+        int n = nums.length, m = queries.length;
         Arrays.sort(nums);
-        int n = nums.length;
+
         for (int i = 1; i < n; i++) {
             nums[i] += nums[i - 1];
         }
 
-        int m = queries.length;
         int[] ans = new int[m];
 
         for (int i = 0; i < m; i++) {
-            int maxLength = n;
-
+            int len = n;
             for (int j = 0; j < n; j++) {
                 if (nums[j] > queries[i]) {
-                    maxLength = j;
+                    len = j;
                     break;
                 }
             }
-            ans[i] = maxLength;
+
+            ans[i] = len;
         }
 
         return ans;
     }
 }
 
-// TC: O(n *logn) + O(m * n)
+// TC: O(n * logn) + O(n) + O(m * n)
 // SC: O(m)
+
+
+
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        int n = nums.length;
+        int m = queries.length;
+        Arrays.sort(nums);
+
+        for (int i = 1; i < n; i++) {
+            nums[i] += nums[i - 1];
+        }
+
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(nums[i], i + 1);
+        }
+
+        int[] ans = new int[m];
+
+        for (int i = 0; i < m; i++) {
+            Integer floor = map.floorKey(queries[i]);
+            if (floor != null) {
+                ans[i] = map.get(floor);
+            }
+        }
+
+        return ans;
+    }
+}
+
+// TC: O(n * logn) + O(n) + O(n * logn) + O(m * logn)
+// SC: O(m + n)
