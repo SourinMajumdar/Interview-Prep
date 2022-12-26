@@ -3,18 +3,21 @@
 class Solution {
     public int missingNumber(int[] nums) {
         Arrays.sort(nums);
-        if (nums[0] != 0) return 0;
+        if (nums[0] != 0) {
+            return 0;
+        }
 
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i + 1] > nums[i] + 1) {
                 return nums[i] + 1;
             }
         }
+
         return nums[nums.length - 1] + 1;
     }
 }
 
-// TC: O(n) + O(n * logn) => O(n * logn)
+// TC: O(n * logn) + O(n) => O(n * logn)
 // SC: O(1)
 
 
@@ -49,3 +52,32 @@ class Solution {
 }
 
 // TC: O(n), SC: O(1)
+
+
+// Cycle sort
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+
+        while (i < n) {
+            int correctIdx = nums[i];
+            if (nums[i] < n && nums[i] != nums[correctIdx]) {
+                int temp = nums[i];
+                nums[i] = nums[correctIdx];
+                nums[correctIdx] = temp;
+            }
+            else i++;
+        }
+
+        for (int j = 0; j < n; j++) {
+            if (j != nums[j]) {
+                return j;
+            }
+        }
+
+        return n;
+    }
+}
+
+// O(n), SC: O(1)
