@@ -1,0 +1,10 @@
+Sean Prashads Leetcode patterns
+
+
+Cycle sort (Leetcode):
+268. Missing Number                             - EASY
+448. Find All Numbers Disappeared in an Array   - EASY
+645. Set Mismatch                               - EASY
+287. Find the Duplicate Number                  - MEDIUM
+442. Find All Duplicates in an Array            - MEDIUM
+41. First Missing Positive                      - HARD
