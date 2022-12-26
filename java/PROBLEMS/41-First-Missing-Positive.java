@@ -22,7 +22,9 @@ class Solution {
 class Solution {
     public int firstMissingPositive(int[] nums) {
         Set<Integer> set = new HashSet<>();
-        for (int num : nums) set.add(num);
+        for (int num : nums) {
+            set.add(num);
+        }
 
         int i = 1;
         while (set.contains(i)) i++;
@@ -40,18 +42,26 @@ class Solution {
 
         for (int i = 0; i < n; i++) {
             if (nums[i] == 1) containsOne++;
-            else if (nums[i] <= 0 || nums[i] > n) nums[i] = 1;
+            else if (nums[i] <= 0 || nums[i] > n) {
+                nums[i] = 1;
+            }
         }
 
-        if (containsOne == 0) return 1;
+        if (containsOne == 0) {
+            return 1;
+        }
 
         for (int i = 0; i < n; i++) {
             int index = Math.abs(nums[i]) - 1;
-            if (nums[index] > 0) nums[index] = - nums[index];
+            if (nums[index] > 0) {
+                nums[index] = -nums[index];
+            }
         }
 
         for (int i = 0; i < n; i++) {
-            if (nums[i] > 0) return i + 1;
+            if (nums[i] > 0) {
+                return i + 1;
+            }
         }
 
         return n + 1;
@@ -59,7 +69,6 @@ class Solution {
 }
 
 // TC: O(n), SC: O(1)
-
 
 // cycle sort
 class Solution {
