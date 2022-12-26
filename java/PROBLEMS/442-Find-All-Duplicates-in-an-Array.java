@@ -82,3 +82,36 @@ class Solution {
 
 // TC: O(n + n) ~ O(n)
 // SC: O(n)
+
+
+// cycle sort
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        int i = 0;
+        while (i < nums.length) {
+            int correctIdx = nums[i] - 1;
+            if (nums[i] != nums[correctIdx]) {
+                swap(nums, i, correctIdx);
+            }
+            else i++;
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                ans.add(nums[i]);
+            }
+        }
+
+        return ans;
+    }
+
+    void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+
+// TC: O(n) + O(n) ~ O(n)
+// SC: O(1)
