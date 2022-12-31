@@ -76,3 +76,44 @@ class Solution {
 }
 
 // TC: O(n), SC: O(1)
+
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return head;
+        }
+
+        ListNode odd = head,
+                even = head.next,
+                temp = head.next.next;
+
+        odd.next = null; even.next = null;
+
+        ListNode prev = null,
+                evenHead = even,
+                oddHead = odd;
+
+        int i = 1;
+        while (temp != null) {
+            prev = temp;
+
+            if (i % 2 == 1) {
+                oddHead.next = temp;
+                oddHead = oddHead.next;
+            }
+            else {
+                evenHead.next = temp;
+                evenHead = evenHead.next;
+            }
+
+            temp = temp.next;
+            prev.next = null;
+            i++;
+        }
+
+        oddHead.next = even;
+        return odd;   // or head
+    }
+}
+
+// TC: O(n), SC: O(1)
