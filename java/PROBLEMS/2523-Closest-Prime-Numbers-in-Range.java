@@ -5,45 +5,41 @@
 
 class Solution {
     private List<Integer> primes = new ArrayList<>();
-    private void sieve(int n) {
-        boolean[] notPrime = new boolean[n+1];
-        for (int p = 2; p * p <= n; p++) {
-            if (!notPrime[p]) {
-                for (int i = p * p; i <= n; i += p) {
-                    notPrime[i] = true;
-                }
+    private void sieve(int l, int r) {
+        boolean[] p = new boolean[r+1];
+        Arrays.fill(p, true);
+
+        for (int i = 2; i * i <= r; i++) {
+            if (!p[i]) continue;
+            for (int j = 2 * i; j <= r; j += i) {
+                p[j] = false;
             }
         }
+        p[0] = p[1] = false;
 
-        for (int i = 2; i <= n; i++) {
-            if (!notPrime[i]) {
-                primes.add(i);
-            }
+        // adding the primes only within the given range
+        for (int i = l; i <= r; i++) {
+            if (p[i]) primes.add(i);
         }
     }
 
     public int[] closestPrimes(int left, int right) {
-        sieve(right);
+        sieve(left, right);
+        int a = -1, b = -1;
         int minDiff = Integer.MAX_VALUE;
-        int v1 = -1, v2 = -1;
-        int i = 0;
 
-        for (i = 0; i < primes.size(); i++) {
-            if (primes.get(i) >= left) {
-                break;
-            }
-        }
-
-        for (int j = i + 1; j < primes.size(); j++) {
-            int currDiff = primes.get(j) - primes.get(j - 1);
-            if (currDiff < minDiff) {
+        for (int i = 1; i < primes.size(); i++) {
+            int currDiff = primes.get(i) - primes.get(i-1);
+            if (minDiff > currDiff) {
                 minDiff = currDiff;
-                v1 = primes.get(j - 1);
-                v2 = primes.get(j);
+                a = primes.get(i-1);
+                b = primes.get(i);
             }
         }
 
-        return new int[] {v1, v2};
+        return new int[] {a, b};
     }
 }
 
+// TC: O(right * log(log(right)) + O(right - left)
+// SC: O(right) + O(right - left)
