@@ -37,3 +37,34 @@ class Solution {
 }
 
 // TC: O(n), SC: O(1)
+
+
+
+/*
+We can skip the part of surpassing the prefix consecutive 0s and begin from the 0th index.
+ct0 will store the count of 0 and ct1 will store the count of 1.
+
+We will treat ct0 as the variable to store the number of flips.
+
+We will initialy begin with the intention of fliiping the 0s to 1s.
+
+If at any point number of 0 becomes greater than the number of 1s,
+we will change our decision and we will try to flip the 1s to 0s.
+ct0 = Math.min(ct0, ct1) will take care of it.
+ */
+
+
+class Solution {
+    public int minFlipsMonoIncr(String s) {
+        int ct0 = 0, ct1 = 0;
+        for (char c : s.toCharArray()) {
+            ct0 += (c == '0')? 1 : 0;
+            ct1 += (c == '1')? 1 : 0;
+            ct0 = Math.min(ct0, ct1);
+        }
+
+        return ct0;
+    }
+}
+
+// TC: O(n), SC: O(1)
