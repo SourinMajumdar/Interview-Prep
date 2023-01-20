@@ -2,22 +2,22 @@
 // Solution: https://www.youtube.com/watch?v=YsedzOvRjgw
 
 class Solution {
-    Set<List<Integer>> set = new HashSet<>();
-    List<Integer> path = new LinkedList<>();
-
+    private Set<List<Integer>> set;
     public List<List<Integer>> findSubsequences(int[] nums) {
-        findSubsequences(nums, 0);
+        set = new HashSet<>();
+        findSubsequences(nums, 0, new LinkedList<>());
         return new ArrayList<>(set);
     }
 
-    public void findSubsequences(int[] nums, int index) {
-        if (path.size() > 1) set.add(new ArrayList(path));
-
+    private void findSubsequences(int[] nums, int index, LinkedList<Integer> currList) {
+        if (currList.size() >= 2) {
+            set.add(new ArrayList(currList));
+        }
         for (int i = index; i < nums.length; i++) {
-            if (path.isEmpty() || nums[i] >= path.get(path.size() - 1)) {
-                path.add(nums[i]);
-                findSubsequences(nums, i + 1);
-                path.removeLast();  // backtrack
+            if (currList.isEmpty() || nums[i] >= currList.getLast()) {
+                currList.add(nums[i]);
+                findSubsequences(nums, i + 1, currList);
+                currList.removeLast();
             }
         }
     }
