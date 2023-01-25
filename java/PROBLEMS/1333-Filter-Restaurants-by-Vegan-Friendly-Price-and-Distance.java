@@ -27,7 +27,7 @@ class Solution {
         // arraylist to store our answer IDs
         List<Integer> ans = new ArrayList<>();
         // keep polling until heap is empty and
-        // and keep adding the IDs to answer list
+        // keep adding the IDs to answer list
         while (!pq.isEmpty()) {
             ans.add(pq.poll()[0]);
         }
