@@ -178,3 +178,53 @@ class Solution {
     }
 }
 
+
+
+
+// bonus
+
+
+class Solution {
+    public int closestMeetingNode(int[] edges, int node1, int node2) {
+        // get distance arrays
+        int[] dist1 = getDistanceArray(edges, node1);
+        int[] dist2 = getDistanceArray(edges, node2);
+
+        int minDistNode = -1;
+        int minDistSoFar = Integer.MAX_VALUE;
+        for (int i = 0; i < edges.length; i++) {
+            // if node i is not connected to either or both node1 & node2
+            if (dist1[i] == -1 || dist2[i] == -1) {
+                continue;
+            }
+
+            int maxDistBetweenTwo = Math.max(dist1[i], dist2[i]);
+            if (maxDistBetweenTwo < minDistSoFar) {
+                minDistSoFar = maxDistBetweenTwo;
+                minDistNode = i;
+            }
+        }
+
+        return minDistNode;
+    }
+
+    private int[] getDistanceArray(int[] edges, int node) {
+        int[] arr = new int[edges.length];
+        Arrays.fill(arr, -1);   // fill the array initially with -1
+        int distance = 0;
+        // works as DFS, travels through connections
+        // until there is no outgoing edge
+        // and distance of all travelled nodes is updated
+        while (node != -1 && arr[node] == -1) {
+            // distance increments at each node
+            arr[node] = distance++;
+            // new node is the node connected to our current node
+            node = edges[node];
+        }
+
+        return arr;
+    }
+}
+
+// TC: O(2n), SC: O(n)
+
