@@ -13,10 +13,6 @@ class SummaryRanges {
     }
 
     public int[][] getIntervals() {
-        if (set.isEmpty()) {        // if set is empty
-            return new int[0][];    // return empty array
-        }
-
         // initialise an arraylist to store the intervals
         List<int[]> intervals = new ArrayList<>();
         // initialise the start and end values with the
@@ -69,14 +65,9 @@ class SummaryRanges {
     }
 
     public int[][] getIntervals() {
-        if (set.isEmpty()) {
-            return new int[0][];
-        }
-
         List<int[]> intervals = new ArrayList<>();
         int start = set.first();
         int end = set.first();
-
         for (int v : set) {
             if (v == start) {
                 continue;
@@ -92,3 +83,34 @@ class SummaryRanges {
         return intervals.toArray(new int[0][]);
     }
 }
+
+
+class SummaryRanges {
+    private boolean[] set;
+    public SummaryRanges() {
+        set = new boolean[10000 + 5];
+    }
+
+    public void addNum(int value) {
+        set[value] = true;
+    }
+
+    public int[][] getIntervals() {
+        List<int[]> intervals = new ArrayList<>();
+        for (int i = 0; i < set.length; i++) {
+            if (!set[i]) {
+                continue;
+            }
+
+            int start = i;
+            while (i < set.length && set[i]) i++;
+            int end = i - 1;
+            intervals.add(new int[] {start, end});
+        }
+
+        return intervals.toArray(new int[0][]);
+    }
+}
+
+// TC: O(10^4) => O(1)
+// SC: O(10^4) => O(1)
