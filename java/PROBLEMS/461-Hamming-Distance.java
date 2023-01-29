@@ -20,6 +20,11 @@ class Solution {
     }
 }
 
+// TC: O(32) => O(1)
+// SC: O(1)
+
+
+
 // XOR of them will give 1, if they are unequal
 // otherwise it'll give 0
 class Solution {
@@ -44,3 +49,5 @@ class Solution {
         return Integer.bitCount(x ^ y);
     }
 }
+
+// TC: O(1), SC: O(1)
