@@ -17,8 +17,8 @@ class Solution {
             (a, b) -> (a[0] == b[0])? a[1] - b[1] : a[0] - b[0]
         );
 
-        int maxScore = 0;
         int[] dp = new int[n];
+        int maxOverallScore = 0;
 
         for (int i = 0; i < n; i++) {
             dp[i] = team[i][1];
@@ -26,11 +26,11 @@ class Solution {
                 if (team[i][1] >= team[j][1]) {
                     dp[i] = Math.max(dp[i], dp[j] + team[i][1]);
                 }
-                maxScore = Math.max(dp[i], maxScore);
             }
+            maxOverallScore = Math.max(dp[i], maxOverallScore);
         }
 
-        return maxScore;
+        return maxOverallScore;
     }
 }
 
